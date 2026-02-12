@@ -68,25 +68,25 @@ enabled = false
 
 ```mermaid
 flowchart TD
-  A[User prompt] --> B{Explicit $skill or /skills?}
-  B -- yes --> C[Select skill]
-  B -- no --> D[Match description]
+  A["User prompt"] --> B{"Explicit call via $skill or /skills?"}
+  B -- yes --> C["Select skill"]
+  B -- no --> D["Match description"]
   D -- match --> C
-  C --> E[Load SKILL.md (full instructions)]
-  E --> F[Run instructions / optional scripts]
-  F --> G[Return results]
+  C --> E["Load SKILL.md full instructions"]
+  E --> F["Run instructions or optional scripts"]
+  F --> G["Return results"]
 ```
 
 ### 6) Mermaid：Skills 扫描图
 
 ```mermaid
 flowchart LR
-  A[CWD/.agents/skills] --> S[Skill registry]
-  B[Parent dirs .agents/skills] --> S
-  C[REPO_ROOT/.agents/skills] --> S
-  D[$HOME/.agents/skills] --> S
-  E[/etc/codex/skills] --> S
-  F[System bundled skills] --> S
+  A["$CWD/.agents/skills"] --> S["Skill registry"]
+  B["Parent dirs .agents/skills"] --> S
+  C["$REPO_ROOT/.agents/skills"] --> S
+  D["$HOME/.agents/skills"] --> S
+  E["/etc/codex/skills"] --> S
+  F["System bundled skills"] --> S
 ```
 
 ---
