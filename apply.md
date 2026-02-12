@@ -37,7 +37,7 @@ sequenceDiagram
     U->>T: Open Termius
     T->>L: SSH login
     L->>C: Start Codex CLI
-    U->>C: "Monitor model server; if finished OK, shut it down"
+    U->>C: Monitor model server and shut it down when finished OK
 
     C->>S: Invoke local Skill (optional)
     S->>G: MCP call: create_watch(job_id, health_criteria, notify_to)
