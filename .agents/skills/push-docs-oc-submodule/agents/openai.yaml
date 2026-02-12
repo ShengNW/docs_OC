@@ -1,0 +1,4 @@
+interface:
+  display_name: "Push docs_OC Submodule"
+  short_description: "Push docs_OC and update parent submodule pointer safely"
+  default_prompt: "Push docs_OC to docs_OC.git via SSH, then update and push parent submodule pointer"
