@@ -27,10 +27,10 @@ Node { id, kind, state, edges, tags, timestamp }
 ### Mermaid (data layout)
 ```mermaid
 flowchart LR
-  subgraph Arena[Vec<Node> (Arena)]
-    N0[NodeId 0\nkind: "scene"\nedges: [1,2]]
-    N1[NodeId 1\nkind: "object"\nedges: [2]]
-    N2[NodeId 2\nkind: "emotion"\nedges: []]
+  subgraph Arena["Vec&lt;Node&gt; Arena"]
+    N0["NodeId 0 | kind scene | edges 1,2"]
+    N1["NodeId 1 | kind object | edges 2"]
+    N2["NodeId 2 | kind emotion | edges none"]
   end
   N0 --> N1
   N0 --> N2
