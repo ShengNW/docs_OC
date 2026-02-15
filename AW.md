@@ -27,18 +27,18 @@ ActivityWatch 的组件可以理解为四类：
 
 ```mermaid
 flowchart LR
-  subgraph Local[本机（用户设备）]
-    Wwin[aw-watcher-window\n前台应用/标题/URL(部分浏览器)] --> S[aw-server\npython 或 rust\nREST + 本地DB]
-    Wafk[aw-watcher-afk\nAFK/Not-AFK] --> S
-    Wweb[aw-watcher-web\n浏览器Tab/URL/是否隐身/是否有声] --> S
-    Winp[aw-watcher-input(可选)\n按键/点击/移动/滚动(聚合)] --> S
-    QT[aw-qt 托盘\n启停模块/崩溃提示] --> S
-    UI[aw-webui 网页\n可视化/分类/导出] <--> S
+  subgraph Local["本机 用户设备"]
+    Wwin["aw-watcher-window<br/>前台应用/标题/URL 部分浏览器"] --> S["aw-server<br/>python 或 rust<br/>REST + 本地DB"]
+    Wafk["aw-watcher-afk<br/>AFK/Not-AFK"] --> S
+    Wweb["aw-watcher-web<br/>浏览器Tab/URL/是否隐身/是否有声"] --> S
+    Winp["aw-watcher-input 可选<br/>按键/点击/移动/滚动 聚合"] --> S
+    QT["aw-qt 托盘<br/>启停模块/崩溃提示"] --> S
+    UI["aw-webui 网页<br/>可视化/分类/导出"] <--> S
   end
 
-  S -->|REST API| Rust[你的 Rust 行为理解服务\n分段/分类/特征/embedding]
-  Rust --> Remote[(远端：数据库/对象存储/向量库)]
-  Rust --> LLM[LLM/Embedding\n日总结/周总结/人格特征提取]
+  S -->|REST API| Rust["你的 Rust 行为理解服务<br/>分段/分类/特征/embedding"]
+  Rust --> Remote["远端 数据库/对象存储/向量库"]
+  Rust --> LLM["LLM/Embedding<br/>日总结/周总结/人格特征提取"]
 ```
 
 你可以把 AW 看成：**“时间轴上的观测（observations）”**，而不是“动作（actions）”。
@@ -324,13 +324,13 @@ exclude_titles = [
 
 ```mermaid
 flowchart TD
-  A[aw-server REST] --> B[Extractor\n拉取 events]
-  B --> C[Normalizer\nUTC->Local\n合并/去重/补洞]
-  C --> D[Segmenter\n会话切段\n上下文切换]
-  D --> E[Semantic Layer\n分类/标签\n(域名/项目/文档)]
-  E --> F[Features/Embeddings\n日节律/专注段\n行为指纹]
-  F --> G[Remote Sink\nDB/S3/VectorDB]
-  F --> H[LLM Summarizer\n日/周总结\n建议与反思]
+  A["aw-server REST"] --> B["Extractor<br/>拉取 events"]
+  B --> C["Normalizer<br/>UTC -> Local<br/>合并/去重/补洞"]
+  C --> D["Segmenter<br/>会话切段<br/>上下文切换"]
+  D --> E["Semantic Layer<br/>分类/标签<br/>域名/项目/文档"]
+  E --> F["Features/Embeddings<br/>日节律/专注段<br/>行为指纹"]
+  F --> G["Remote Sink<br/>DB/S3/VectorDB"]
+  F --> H["LLM Summarizer<br/>日/周总结<br/>建议与反思"]
 ```
 
 ### 7.1 REST API：你最常用的几个端点（够用版）
