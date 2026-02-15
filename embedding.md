@@ -127,7 +127,7 @@ flowchart LR
     V --> HDYN[h_dyn 动力学层]
     A --> HDYN
 
-    ZACT --> PI[策略头 π(a|s)]
+    ZACT --> PI["策略头 policy(a_given_s)"]
     HDYN --> PLAN[预测/规划]
     PLAN --> PI
 ```
